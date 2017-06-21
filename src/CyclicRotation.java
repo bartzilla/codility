@@ -22,7 +22,7 @@ public class CyclicRotation
         }
     }
 
-    private static int[] solution(final int[] A, int K)
+    private static int[] solution(final int[] A, final int K)
     {
         int from = 0;
 
