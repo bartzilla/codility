@@ -2,6 +2,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ *  Correctness: 100%
+ *  Performance: not assessed
+ *  Task score: 100%
+ */
+
 public class CyclicRotation
 {
     public static void main(String[] args)
