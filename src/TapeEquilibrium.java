@@ -4,9 +4,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by ciprianosanchez on 6/22/17.
+/*
+ *  Correctness: 100%
+ *  Performance: 0%
+ *  Task score:  50%
  */
+
 public class TapeEquilibrium
 {
     public static void main(String[] args)
