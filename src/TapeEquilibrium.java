@@ -1,8 +1,5 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /*
  *  Correctness: 100%
@@ -21,41 +18,31 @@ public class TapeEquilibrium
 
     private static int getMinDiff(final int[] A)
     {
-        List<Integer> original = Arrays.stream(A).boxed().collect(Collectors.toList());
-        List<Integer> head = new ArrayList<>();
-        List<Integer> tail = new ArrayList<>();
-        List<Integer> results = new ArrayList<>();
+        int minDiff = Integer.MAX_VALUE;
 
         for (int i = 1; i < A.length; i++)
         {
-
-
-
             final int start = i;
-            final int end = original.size();
+            final int end = A.length;
 
-            head = original.subList(0, start);
-            tail = original.subList(start, end);
+            int[] head = new int[start];
+            int[] tail = new int[end - start];
 
-            int sumHeadElements = 0;
-            int sumTailElements = 0;
+            head = Arrays.copyOfRange(A, 0, start);
+            tail = Arrays.copyOfRange(A, start, end);
 
-            for (Integer value : head)
+            int sumHeadElements = IntStream.of(head).sum();
+            int sumTailElements = IntStream.of(tail).sum();
+
+            int diff = Math.abs(sumHeadElements - sumTailElements);
+
+            if (diff < minDiff)
             {
-                sumHeadElements += value;
+                minDiff = diff;
             }
-
-            for (Integer value : tail)
-            {
-                sumTailElements += value;
-            }
-
-            results.add(Math.abs(sumHeadElements - sumTailElements));
         }
 
-        Collections.sort(results);
-
-        return results.get(0);
+        return minDiff;
     }
 
 }
