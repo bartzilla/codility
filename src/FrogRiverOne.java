@@ -1,49 +1,32 @@
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  *  Correctness: 100%
- *  Performance: 0%
- *  Task score:  54%
+ *  Performance: 100%
+ *  Task score:  100%
  */
 
 public class FrogRiverOne
 {
     public static void main(String[] args)
     {
-//        final int[] A = {1, 3, 1, 3, 2, 1, 3};
-        final int[] A = {1, 3, 1, 3, 1, 1, 2};
-        final int X = 3;
+        final int[] A = {3};
+        final int X = 5;
 
         System.out.println("The earliest time is: " + FrogRiverOne.getEarliestTime(X, A));
     }
 
     private static int getEarliestTime(final int X, final int[] A)
     {
+        Map<Integer, Integer> leaves = new HashMap<>();
 
-        List<Integer> elementsToSearch = new ArrayList<>();
-
-        for(int i=0; i<X; i++)
+        for (int i = A.length - 1; i >= 0 ; i--)
         {
-            elementsToSearch.add(i + 1);
+            leaves.put(A[i] - 1, i);
         }
 
-        for(int i=X; i<=A.length; i++)
-        {
-            List<Integer> temp = Arrays.stream(A).boxed().collect(Collectors.toList()).subList(0, i);
-
-            Collections.sort(temp);
-
-            Set<Integer> uniqueElements = new TreeSet<>();
-
-            uniqueElements.addAll(temp);
-
-            if (temp.containsAll(elementsToSearch))
-            {
-                return i - 1;
-            }
-        }
-
-        return -1;
+        return leaves.size() != X ? -1 : Collections.max(leaves.values());
     }
 }
