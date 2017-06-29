@@ -1,9 +1,9 @@
 import java.util.*;
 
 /*
- *  Correctness: 80%
- *  Performance: 50%
- *  Task score:  66%
+ *  Correctness: 100%
+ *  Performance: 100%
+ *  Task score:  100%
  */
 
 public class MissingInteger
@@ -22,42 +22,21 @@ public class MissingInteger
 
     public static int getMinimunInteger(int[] A)
     {
-        Arrays.sort(A);
+        int missing = 1;
 
-        int start = -1;
+        Set<Integer> values = new HashSet<>();
 
-        for (int i = 0; i < A.length; i++)
+        for(int i=0; i<A.length; i++)
         {
-            start = Arrays.binarySearch(A, i + 1);
-
-            if (start >= 0)
-            {
-                break;
-            }
+            values.add(A[i]);
         }
 
-        if (start < 0)
+        while (values.contains(missing))
         {
-            return 1;
+            missing++;
         }
 
-        int[] positives = Arrays.copyOfRange(A, start, A.length);
-        int[] counters = new int[positives[positives.length - 1] + 1];
-
-        for (int i = 0; i < positives.length; i++)
-        {
-            counters[positives[i]]++;
-        }
-
-        for (int i = 1; i < counters.length; i++)
-        {
-            if (counters[i] == 0)
-            {
-                return i;
-            }
-        }
-
-        return counters.length;
+        return missing;
 
     }
 }
