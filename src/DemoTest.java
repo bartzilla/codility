@@ -1,16 +1,18 @@
 import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
-/**
- * Created by ciprianosanchez on 6/29/17.
+/*
+ *  Correctness: 95%
+ *  Performance: 0%
+ *  Task score:  64%
  */
 public class DemoTest
 {
     public static void main(String[] args)
     {
 
-//        int[] A = {-1, 3, -4, 5, 1, -6, 2, 1};
-        int[] A = {0, -2147483648, -2147483648};
+        int[] A = {-1, 3, -4, 5, 1, -6, 2, 1};
+//        int[] A = {0, -2147483648, -2147483648};
         System.out.println("Result: " + DemoTest.solution(A));
     }
 
@@ -22,8 +24,11 @@ public class DemoTest
             int[] head = Arrays.copyOfRange(A, 0, i);
             int[] tail = Arrays.copyOfRange(A, i + 1, A.length);
 
-            int sumHead = IntStream.of(head).sum();
-            int sumTail = IntStream.of(tail).sum();
+            long[] longHead = Arrays.stream(head).asLongStream().toArray();
+            long[] longTail = Arrays.stream(tail).asLongStream().toArray();
+
+            long sumHead = LongStream.of(longHead).sum();
+            long sumTail = LongStream.of(longTail).sum();
 
             if (sumHead == sumTail)
             {
