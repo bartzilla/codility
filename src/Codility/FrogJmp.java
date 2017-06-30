@@ -1,4 +1,4 @@
-/*
+package Codility;/*
  *  Correctness: 100%
  *  Performance: 100%
  *  Task score:  100%

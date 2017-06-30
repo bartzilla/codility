@@ -1,3 +1,5 @@
+package Codility;
+
 /**
  * Created by ciprianosanchez on 6/21/17.
  */

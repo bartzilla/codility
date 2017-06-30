@@ -1,3 +1,5 @@
+package Codility;
+
 /*
  *  Correctness: 100%
  *  Performance: not assessed

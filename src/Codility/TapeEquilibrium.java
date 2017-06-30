@@ -1,3 +1,5 @@
+package Codility;
+
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
@@ -17,7 +19,7 @@ public class TapeEquilibrium
         Integer b = 128;
 
         System.out.println(a == b);
-//        System.out.println("The minimum difference is: " + TapeEquilibrium.getMinDiff(elements));
+//        System.out.println("The minimum difference is: " + Codility.TapeEquilibrium.getMinDiff(elements));
     }
 
     private static int getMinDiff(final int[] A)

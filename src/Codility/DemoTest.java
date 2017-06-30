@@ -1,3 +1,5 @@
+package Codility;
+
 import java.util.Arrays;
 import java.util.stream.LongStream;
 
@@ -71,7 +73,7 @@ P = 8 is not an equilibrium index, because it does not fulfill the condition 0 â
 
 Write a function:
 
-class Solution { public int solution(int[] A); }
+class HackerRank.LeftRotation { public int solution(int[] A); }
 
 that, given a zero-indexed array A consisting of N integers, returns any of its equilibrium indices. The function should return âˆ’1 if no equilibrium index exists.
 
