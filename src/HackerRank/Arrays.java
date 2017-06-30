@@ -13,6 +13,21 @@ import java.util.stream.Collectors;
 public class Arrays
 {
     public static void main(String[] args) {
+
+
+//        Scanner scan = new Scanner(System.in);
+//        int i = scan.nextInt();
+//        Double d = scan.nextDouble();
+//        scan.nextLine();
+//        String s = scan.nextLine();
+//
+//        // Write your code here.
+//
+//        System.out.println("String: " + s);
+//        System.out.println("Double: " + d);
+//        System.out.println("Int: " + i);
+
+
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int a[] = new int[n];
