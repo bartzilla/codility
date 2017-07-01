@@ -29,5 +29,12 @@ public class UtilLists
 
         // CONVERT INT TO BINARY
         String binary = Integer.toBinaryString(10);
+
+        // Cover List to Set
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(1);
+        Set<Integer> foo = new HashSet<>(list);
     }
 }
