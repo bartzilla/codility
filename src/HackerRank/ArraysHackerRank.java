@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Created by ciprianosanchez on 6/30/17.
  */
-public class Arrays
+public class ArraysHackerRank
 {
     public static void main(String[] args) {
 
