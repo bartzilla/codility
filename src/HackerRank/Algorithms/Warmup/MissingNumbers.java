@@ -11,59 +11,57 @@ import java.util.stream.Collectors;
  */
 public class MissingNumbers
 {
+
     public static void main(String[] args)
     {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int[] ar1 = new int[n];
+        String[]arr = {"{{}}()", "{]}))"};
 
-        for(int i = 0; i < n; i++){
-            ar1[i] = in.nextInt();
-        }
-
-        int m = in.nextInt();
-        int[] ar2 = new int[m];
-        for(int i = 0; i < m; i++){
-            ar2[i] = in.nextInt();
-        }
-
-        missingNumbers(ar1, ar2);
+        braces(arr);
 
     }
 
-    static void missingNumbers(int[] ar1, int[] ar2)
-    {
+/*
+ * Complete the function below.
+ */
 
-        List<Integer> ar1List = Arrays.stream(ar1).boxed().collect(Collectors.toList());
-        List<Integer> ar2List = Arrays.stream(ar2).boxed().collect(Collectors.toList());
-        List<Integer> missing = new ArrayList<>();
+    static String[] braces(String[] values) {
 
-        for (int value : ar1)
-        {
-            if (ar2List.contains(value))
+//        List<String> vList = new ArrayList<>();
+        List<String> elements = new ArrayList<>();
+        List<String> results = new ArrayList<>();
+
+        for(int i=0; i<values.length; i++){
+            elements.add(values[i]);
+        }
+
+        for(String o: elements){
+
+            List<Character> vList = new ArrayList<>();
+            char[] braces = o.toCharArray();
+
+            for (char b : braces)
             {
-                ar2List.remove(new Integer(value));
+                vList.add(b);
+            }
+
+            for(int i=0; i<braces.length; i++){
+                if(vList.contains(braces[i])){
+                    vList.remove(new Character(braces[i]));
+                }
+            }
+
+            if(vList.size() != 0){
+                results.add("NO");
+            }
+            else{
+                results.add("YES");
             }
         }
 
-        for (int value : ar2)
-        {
-            if (ar1List.contains(value))
-            {
-                ar1List.remove(new Integer(value));
-            }
-        }
 
-        missing.addAll(ar1List);
-        missing.addAll(ar1List.size(), ar2List);
-        Collections.sort(missing);
-
-        Set<Integer> missingSet = new LinkedHashSet<>(missing);
-
-        for(Integer val: missingSet)
-        {
-            System.out.print(val + " ");
-        }
+        return results.toArray(new String[0]);
 
     }
+
+
 }
