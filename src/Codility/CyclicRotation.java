@@ -4,12 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/*
- *  Correctness: 100%
- *  Performance: not assessed
- *  Task score: 100%
- */
-
 public class CyclicRotation
 {
     public static void main(String[] args)
@@ -24,6 +18,30 @@ public class CyclicRotation
         }
     }
 
+    /*
+     *  Correctness: 100%
+     *  Performance: not assessed
+     *  Task score: 100%
+     */
+    public int[] solution2(int[] A, int K) {
+        if(K == A.length || A.length <= 1 ) return A;
+
+        int start = A.length - (K % A.length);
+        int tail[] = Arrays.copyOfRange(A, start, A.length);
+        int head[] = Arrays.copyOf(A, start);
+
+        int[] shifted = new int[A.length];
+        System.arraycopy(tail, 0, shifted, 0, tail.length);
+        System.arraycopy(head, 0, shifted, tail.length, head.length);
+
+        return shifted;
+    }
+
+    /*
+     *  Correctness: 100%
+     *  Performance: not assessed
+     *  Task score: 100%
+     */
     private static int[] solution(final int[] A, final int K)
     {
         int from = 0;
