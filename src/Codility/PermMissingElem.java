@@ -16,6 +16,19 @@ public class PermMissingElem
         System.out.println("The missing number in the array is: " + PermMissingElem.getMissingElement(elements));
     }
 
+    public int solution(int[] A) {
+
+        int sum = A.length + 1;
+        int arraySum = 0;
+
+        for(int i=1; i<=A.length; i++) {
+            sum+= i;
+            arraySum+= A[i-1];
+        }
+
+        return sum - arraySum;
+    }
+
     private static int getMissingElement(final int[] A)
     {
         if (A.length == 0)
